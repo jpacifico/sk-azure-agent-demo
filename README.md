@@ -4,6 +4,10 @@ In this demo, we will show how to use the Semantic Kernel process framework to o
 multiple Azure AI Agent Service agents.
 
 ## Prerequisites
+
+Install .NET 8.0
+https://dotnet.microsoft.com/download/dotnet/8.0
+
 You'll need an Azure AI Foundry project with the following agents. You can find the code to create these agents in the `agents` folder.
 
 - [Researcher agent](./agents/researcher_agent.py)

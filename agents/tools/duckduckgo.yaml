@@ -1,0 +1,47 @@
+openapi: 3.0.1
+info:
+  title: DuckDuckGo Instant Answer API
+  description: Recherche DuckDuckGo – renvoie une réponse instantanée.
+  version: 1.0.0
+
+# Extension spécifique Azure AI / OpenAI : délai de 3000 ms entre deux requêtes
+x-ms-openai-extension:
+  timeout: 3000      # en millisecondes (3 secondes)
+
+servers:
+  - url: https://api.duckduckgo.com
+
+paths:
+  /:
+    get:
+      summary: Recherche instantanée
+      operationId: duckduckgoSearch
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: Terme de recherche
+          schema:
+            type: string
+        - name: format
+          in: query
+          required: true
+          description: Format de réponse (JSON)
+          schema:
+            type: string
+            enum: [json]
+            default: json
+      responses:
+        "200":
+          description: Résultat de recherche DuckDuckGo
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  AbstractText:
+                    type: string
+                    description: Réponse principale
+                  RelatedTopics:
+                    type: array
+                    description: Thèmes connexes
