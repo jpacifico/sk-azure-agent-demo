@@ -28,6 +28,6 @@ openapi = OpenApiTool(name="Outlook", spec=openapi_spec, description="sends and 
 agent = project_client.agents.create_agent(
     model="gpt-4o-mini",
     name="Sender agent",
-    instructions="Call the SendEmail function. The body must be the report. Address it to Mads Bolaris and use HTML instead of markdown.",
+    instructions="Call the SendEmail function. The body must be the report. Address it to the recipient and use HTML instead of markdown.",
     tools=openapi.definitions
 )

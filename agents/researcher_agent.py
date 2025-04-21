@@ -50,10 +50,10 @@ agent = client.agents.create_agent(
     name="Researcher agent",
     model=MODEL,
     instructions=(
-        """Tu es un agent de recherche.  
-        **Tu n’as le droit de faire qu’une seule invocation** de l’outil DuckDuckGo pour un même sujet.  
-        Après avoir obtenu la réponse, compose un résumé et transmets‑le.  
-        N’effectue pas d’autres appels DuckDuckGo.
+        """You are a research agent.
+You are only allowed to make a single invocation of the DuckDuckGo tool for a given topic.
+After obtaining the response, compose a summary and deliver it.
+Do not make any additional DuckDuckGo calls.
         """
     ),
     tools=duck_tool.definitions,       # le SDK s’occupe du format JSON
