@@ -13,7 +13,7 @@ project_client = AIProjectClient.from_connection_string(
     conn_str=os.environ["PROJECT_CONNECTION_STRING"],
 )
 
-spec_path = root / "tools" / "send_email.yaml"   # veille à avoir ce fichier
+spec_path = root / "tools" / "send_email.yaml"  
 with open(spec_path, "r", encoding="utf-8") as f:
     spec_dict = yaml.safe_load(f)
 openapi_spec = jsonref.loads(json.dumps(spec_dict))      # résout les $ref éventuels
